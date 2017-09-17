@@ -70,22 +70,6 @@ public class GetFromNDic extends IntentService {
     private void sendNotification(String _word, String _meaning){
         int notificationID = new Random().nextInt(Integer.MAX_VALUE - 1);
 
-        /* inIntentService로 보낼, Intent와 PendingIntent 생성
-         Intent에 word와 string을 putExtra로 같이 붙임*/
-        Intent saveIntent = new Intent(this, DBIntentService.class);
-        saveIntent.putExtra("word", _word)
-                .putExtra("meaning", _meaning)
-                .putExtra("notificationID", notificationID)
-                .setAction("ACTION_SAVE");
-        PendingIntent piSave = PendingIntent.getService(this, 0, saveIntent, PendingIntent.FLAG_ONE_SHOT);
-
-        /* DBIntentService로 보낼, Intent와 PendingIntent 생성
-        * 사용자가 SAVE를 선택하지 않았을 경우 생성*/
-        Intent notsaveIntent = new Intent(this, DBIntentService.class);
-        notsaveIntent.setAction("ACTION_NOT_SAVE")
-                    .putExtra("notificationID", notificationID);
-        PendingIntent piNotSave = PendingIntent.getService(this, 0, notsaveIntent, PendingIntent.FLAG_ONE_SHOT);
-
         PendingIntent toMainActivity = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
         /*Notification Manager AND Builder*/
@@ -96,11 +80,10 @@ public class GetFromNDic extends IntentService {
                 .setContentText(_meaning)
                 .setTicker(_word + _meaning)
                 .setStyle(new Notification.BigTextStyle().bigText(_meaning))
-                .setDefaults(Notification.DEFAULT_ALL)
+                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                 .setPriority(Notification.PRIORITY_HIGH)
-                .setContentIntent(toMainActivity)
-                .addAction(R.drawable.ic_stat_name, "SAVE", piSave)
-                .addAction(R.drawable.ic_stat_name, "NOT SAVE", piNotSave);
+                .setVibrate(new long[]{0L})
+                .setContentIntent(toMainActivity);
 
         Notification notification = builder.build();
         notificationManager.notify(notificationID, notification);

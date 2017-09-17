@@ -22,9 +22,6 @@
         <service
             android:name=".GetFromNDic"
             android:exported="false" />
-        <service
-            android:name=".DBIntentService"
-            android:exported="false" />
 
         <receiver android:name=".MyBroadCastReceiver">
             <intent-filter>
@@ -32,7 +29,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Quiz"></activity>
     </application>
 
 </manifest>
