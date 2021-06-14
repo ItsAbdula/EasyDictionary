@@ -1,4 +1,4 @@
-package com.example.woohyung_choi.mpproject;
+package com.itsabdula.woohyung_choi.easydictionary;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

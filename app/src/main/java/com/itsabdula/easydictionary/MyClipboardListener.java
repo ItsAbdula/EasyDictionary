@@ -1,11 +1,10 @@
-package com.example.woohyung_choi.mpproject;
+package com.itsabdula.woohyung_choi.easydictionary;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 
 import static android.app.PendingIntent.getActivity;

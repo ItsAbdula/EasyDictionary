@@ -1,4 +1,4 @@
-package com.example.woohyung_choi.mpproject;
+package com.itsabdula.woohyung_choi.easydictionary;
 
 import org.junit.Test;
 
