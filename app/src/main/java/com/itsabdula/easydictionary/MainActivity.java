@@ -1,4 +1,4 @@
-package com.itsabdula.woohyung_choi.easydictionary;
+package com.itsabdula.easydictionary;
 
 import android.content.ClipboardManager;
 import android.content.Context;

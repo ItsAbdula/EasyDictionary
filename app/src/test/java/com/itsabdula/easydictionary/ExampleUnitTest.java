@@ -1,4 +1,4 @@
-package com.itsabdula.woohyung_choi.easydictionary;
+package com.itsabdula.easydictionary;
 
 import org.junit.Test;
 

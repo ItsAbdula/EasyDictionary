@@ -1,4 +1,4 @@
-package com.itsabdula.woohyung_choi.easydictionary;
+package com.itsabdula.easydictionary;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

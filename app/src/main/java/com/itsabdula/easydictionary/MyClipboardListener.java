@@ -1,4 +1,4 @@
-package com.itsabdula.woohyung_choi.easydictionary;
+package com.itsabdula.easydictionary;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
@@ -6,8 +6,6 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-
-import static android.app.PendingIntent.getActivity;
 
 /**
  * Created by WooHyung_Choi on 2017-09-01.
