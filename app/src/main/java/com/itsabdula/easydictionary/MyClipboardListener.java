@@ -16,9 +16,9 @@ public class MyClipboardListener implements ClipboardManager.OnPrimaryClipChange
     String mPreviousText = "";
     ClipboardManager clipboard;
 
-    public MyClipboardListener(Context context1){
+    public MyClipboardListener(Context context1) {
         context = context1;
-        clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+        clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
     }
 
     @Override
@@ -36,11 +36,11 @@ public class MyClipboardListener implements ClipboardManager.OnPrimaryClipChange
         else {
             try {
                 ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
-                if(item == null) throw new Throwable("NULL_CLIPDATA");
+                if (item == null) throw new Throwable("NULL_CLIPDATA");
                 String clipDataWord = item.getText().toString();
 
                 // 앞의 단어와 같은 경우 return;
-                if(mPreviousText.equals(clipDataWord)) throw new Throwable("Duplicated");
+                if (mPreviousText.equals(clipDataWord)) throw new Throwable("Duplicated");
                 else {
                     mPreviousText = clipDataWord;
 
@@ -50,7 +50,7 @@ public class MyClipboardListener implements ClipboardManager.OnPrimaryClipChange
                 }
             } catch (NullPointerException e) {
                 Log.e(this.getClass().getName(), "NullptrException");
-            } catch(Throwable t){
+            } catch (Throwable t) {
                 Log.e(this.getClass().getName(), "Duplicated");
             }
         }
