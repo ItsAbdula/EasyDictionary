@@ -6,56 +6,20 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 
-import androidx.annotation.Nullable;
-
-import android.util.Log;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
 import java.util.Random;
 
 public class GetFromNDic extends IntentService {
 
-    private String word;
-    Document doc;
 
     public GetFromNDic() {
         super("GetFromNDic");
     }
 
-
     @Override
-    protected void onHandleIntent(Intent intent) {
-        try {
-            word = intent.getStringExtra("Word");
+    protected void onHandleIntent(@org.jetbrains.annotations.NotNull Intent intent) {
 
-            String url = new String("http://m.endic.naver.com/search.nhn?searchOption=entryIdiom&query=" + word);
-            String toNotification_meaning = new String("");
-            String toNotification_word = new String("");
-
-            doc = Jsoup.connect(url).get();
-            Elements meanings = doc.select("ul.desc_lst");
-            Elements words = doc.select("strong.target");
-            Element meaning;
-            Element word;
-
-            if (meanings.size() == 0 || words.size() == 0) {
-                //Toast.makeText(getApplicationContext(), "검색결과가 없습니다.", Toast.LENGTH_SHORT).show();
-                return;
-            } else {
-                meaning = meanings.get(0);
-                word = words.get(0);
-                toNotification_meaning = meaning.text();
-                toNotification_word = word.text();
-            }
-            sendNotification(toNotification_word, toNotification_meaning);
-        } catch (IOException e) {
-            Log.e("IO", "Something Wrong with IO");
-        }
+        String word = intent.getStringExtra("Word");
+        String url = "http://m.endic.naver.com/search.nhn?searchOption=entryIdiom&query=" + word;
     }
 
     private void sendNotification(String _word, String _meaning) {
