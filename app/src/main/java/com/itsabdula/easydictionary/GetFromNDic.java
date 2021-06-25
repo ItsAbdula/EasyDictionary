@@ -27,21 +27,12 @@ public class GetFromNDic extends IntentService {
         super("GetFromNDic");
     }
 
-    @Override
-    public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        Log.e(this.getClass().getName(), "Service Started.");
-        try {
-            word = intent.getStringExtra("Word");
-        } catch (NullPointerException e) {
-            Log.e(this.getClass().getName(), "I don't get anything");
-        }
-
-        return super.onStartCommand(intent, flags, startId);
-    }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         try {
+            word = intent.getStringExtra("Word");
+
             String url = new String("http://m.endic.naver.com/search.nhn?searchOption=entryIdiom&query=" + word);
             String toNotification_meaning = new String("");
             String toNotification_word = new String("");
@@ -72,7 +63,6 @@ public class GetFromNDic extends IntentService {
 
         PendingIntent toMainActivity = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
-        /*Notification Manager AND Builder*/
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
         builder.setSmallIcon(R.drawable.ic_stat_name)
