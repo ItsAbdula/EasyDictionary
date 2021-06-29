@@ -1,5 +1,8 @@
 # EasyDictionary
 
+![example workflow](https://github.com/ItsAbdula/EasyDictionary/actions/workflows/android.yml/badge.svg)
+
+
 2017년 모바일프로그래밍 수업에서 진행한 안드로이드 프로젝트 입니다.
 
 영단어를 클립보드로 복사하면, 단어 뜻을 푸시 알림으로 알려줍니다.
