@@ -1,6 +1,7 @@
 # EasyDictionary
 
-![example workflow](https://github.com/ItsAbdula/EasyDictionary/actions/workflows/android.yml/badge.svg)
+![github action](https://github.com/ItsAbdula/EasyDictionary/actions/workflows/android.yml/badge.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 영단어를 복사하면, 단어 뜻을 푸시 알림으로 알려줍니다.
 
